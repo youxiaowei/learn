@@ -1,0 +1,24 @@
+{
+  "name": "nukeProject",
+  "description": "nuke-new-demo",
+  "version": "0.1.0",
+  "keyword": [
+    "weex-nuke",
+    "nuke"
+  ],
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "qs": "^6.4.0",
+    "rax": "^0.4.x",
+    "universal-toast": "0.4.x",
+    "weex-nuke": "^0.0.3"
+  },
+  "devDependencies": {
+    "eslint": "3.19.0",
+    "babel-eslint": "^7.2.3",
+    "eslint-config-ali": "2.0.0",
+    "eslint-plugin-import": "2.6.0",
+    "eslint-plugin-jsx-a11y": "6.0.2",
+    "eslint-plugin-react": "7.1.0"
+  }
+}

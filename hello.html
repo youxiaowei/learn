@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Hello World</title>
+    <script src="https://unpkg.com/react@latest/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@latest/dist/react-dom.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+     
+      // jsx 表达式要包括在大括号里面
+      // function formatName(user) {
+      //   return user.firstName + ' ' + user.lastName;
+      // }
+      
+      // const user = {
+      //   firstName: '游',
+      //   lastName: '晓伟'
+      // };
+      // function getGreeting(user){
+      //   if(user){
+      //     return <h1>hello {formatName(user)}</h1>
+      //   }
+      //   return <h1>hello ,Stranger</h1>
+      // }
+      // ReactDOM.render(
+      //   getGreeting(user),
+      //   document.getElementById('root')
+      // );
+
+
+      // react 只会更新必要的部分
+      // function tick() {
+      //   const element = (
+      //     <div>
+      //       <h1>Hello, world!</h1>
+      //       <h2>It is {new Date().toLocaleTimeString()}.</h2>
+      //     </div>
+      //   );
+      //   ReactDOM.render(
+      //     element,
+      //     document.getElementById('root')
+      //   );
+      // }
+      // setInterval(tick,1000);
+
+      // 函数定义/类定义组件
+      
+      // const props={
+      //   name:'游晓伟',
+      //   sex:'女'
+      // }
+      // 函数
+      // function Welcome(props) {
+      //   return <h1>hello, {props.name}</h1>
+      // }
+      // ReactDOM.render(Welcome(props),document.getElementById('root'));
+      // ES6   class
+      // class Welcome extends React.Component {
+      //   render() {
+      //     return <h1>hello, {props.name}</h1>
+      //   }
+      // }
+      // ReactDOM.render(<Welcome/>,document.getElementById('root'));
+
+    // 用户自定义组件
+//     当React遇到的元素是用户自定义的组件，它会将JSX属性作为单个对象传递给该组件,这个对象称之为“props”。
+
+// 例如,这段代码会在页面上渲染出"Hello,Sara":
+//     function Welcome() {
+//         return <h1>hello, {props.name}</h1>
+//       }
+//     const element = <Welcome name="Sara"/>
+//     ReactDOM.render(element,document.getElementById('root'));
+//     function Welcome(props) {
+//   return <h1>Hello, {props.name}</h1>;
+// }
+
+// function App() {
+//   return (
+//     <div>
+//       <Welcome name="Sara" />
+//       <Welcome name="Cahal" />
+//       <Welcome name="Edite" />
+//     </div>
+//   );
+// }
+
+// ReactDOM.render(
+//   <App />,
+//   document.getElementById('root')
+// );
+
+// 提取组件，使代码更好维护
+// 头像
+// function Avatar(props) {
+//   return (
+//     <img className="Avatar"
+//     src={props.user.avatarUrl}
+//      alt={props.user.name} />
+//   );
+// }
+// function UserInfo(props) {
+//   return (
+//     <div className="UserInfo">
+//       <Avatar user={props.user} />
+//       <div className="UserInfo-name">
+//         {props.user.name}
+//         </div>
+//     </div>
+//   );
+// }
+
+// function Comment (props) {
+//   return (
+//     <div className="Comment">
+//       <UserInfo user={props.author} />
+//       <div className="Comment-text">
+//         {props.text}
+//         </div>
+//         <div className="Comment-date">
+//           {props.date}
+//           </div>
+//       </div>
+//     );
+// }
+// const props={
+//   author:{
+//     name:'游晓伟',
+//     avatarUrl:'https://avatars0.githubusercontent.com/u/22719480?v=4&s=40'
+//   },
+//   text:'good',
+//   date:"2017.9.20"
+// }
+// ReactDOM.render(
+//   Comment(props),
+//   document.getElementById('root')
+// );
+// class Clock extends React.Component {
+//   render() {
+//     return (
+//       <div>
+//         <h1>Hello, world!</h1>
+//         <h2>It is {this.props.date.toLocaleTimeString()}.</h2>
+//       </div>
+//     );
+//   }
+// }
+// function tick(){
+//   ReactDOM.render(
+//   <Clock date={new Date()} />,
+//   document.getElementById('root')
+// );
+// }
+// setInterval(tick,1000);
+
+
+// 为类添加局部状态
+// class Clock extends React.Component {
+//   // 添加一个类构造函数来初始化状态
+
+//   constructor(props){
+//     super(props);
+//     this.state = {date:new Date()};
+//   }
+//   //生命周期函数
+//   // 组件已加载
+//   componentDidMount() {
+//     this.timerID=setInterval(()=> this.tick(),1000);
+//   }
+//   // 组件即将卸载
+//   componentWillUnmount() {
+
+//   }
+//   tick() {
+//     this.setState({
+//       date:new Date()
+//     });
+//   }
+//   render() {
+//     return(
+//       <div>
+//         <h1>hello,world</h1>
+//         <h2>It is {this.state.date.toLocaleTimeString()}</h2>
+//         </div>
+//     );
+//   }
+// }
+// ReactDOM.render(<Clock />,document.getElementById('root'));
+
+    </script>
+  </body>
+</html>
