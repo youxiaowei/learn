@@ -4,37 +4,27 @@ class Counter extends Component {
         super(props);
         this.incrementAsync = this.incrementAsync.bind(this);
         this.incrementIfOdd = this.incrementIfOdd.bind(this);
-        this.onIncrement = this.onIncrement.bind(this);
-        this.onDecrement = this.onDecrement.bind(this);
-        this.state={value:0};
-    }
-    onIncrement() {
-        let value=this.state.value+1;
-        this.setState({value:value});
-    }
-    onDecrement() {
-      let value=this.state.value-1;
-      this.setState({value:value});
     }
     incrementIfOdd() {
-        if (this.state.value % 2 !== 0) {
-          this.onIncrement()
+        if (this.props.value % 2 !== 0) {
+          this.props.onIncrement()
         }
       }
     
       incrementAsync() {
-        setTimeout(this.onIncrement, 1000)
+        setTimeout(this.props.onIncrement, 1000)
       }
     render() {
+      
         return(
             <p>
-            Clicked: {this.state.value} times
+            Clicked: {this.props.value} times
             {' '}
-            <button onClick={this.onIncrement}>
+            <button onClick={this.props.onIncrement}>
               +
             </button>
             {' '}
-            <button onClick={this.onDecrement}>
+            <button onClick={this.props.onDecrement}>
               -
             </button>
             {' '}
