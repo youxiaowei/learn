@@ -10,8 +10,8 @@ import List from './mods/list/index';
 import './index.scss';
 
 
-
-
+// layout为header,sideMenu组件
+//list 为列表组件
 const store = createStore(reducers);
 ReactDom.render(
   <Provider store={store}>

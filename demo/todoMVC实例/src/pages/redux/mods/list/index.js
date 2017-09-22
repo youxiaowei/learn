@@ -20,6 +20,7 @@ class List extends React.Component {
 
   handleClick() {
     var { dispatch, list, counter } = this.props;
+    console.log(this.props);
 
     if( this.loading) {
       return false;
