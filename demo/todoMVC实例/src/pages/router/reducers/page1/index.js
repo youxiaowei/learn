@@ -24,4 +24,3 @@ export default function index(state = initialState, action = defaultAction ) {
       return state;
   }
 }
-

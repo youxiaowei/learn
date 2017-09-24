@@ -16,7 +16,9 @@ const linkConfig = {
     'router-home': '/demos/router.html#/home',
     'router-page1': '/demos/router.html#/page1',
     'router-page2': '/demos/router.html#/page2',
-    'text':'/demos/text.html',
+    'router-practice1': '/demos/text.html#/practice1',
+    'router-practice2': '/demos/text.html#/practice2',
+    'router-practice3': '/demos/text.html#/practice3',
   },
   onLine: {//自行根据服务端路径定义
     'index': '/demos/index.html',
@@ -24,7 +26,9 @@ const linkConfig = {
     'router-home': '/demos/router.html#/home',
     'router-page1': '/demos/router.html#/page1',
     'router-page2': '/demos/router.html#/page2',
-    'text':'/demos/text.html',
+    'router-practice1': '/demos/text.html#/practice1',
+    'router-practice2': '/demos/text.html#/practice2',
+    'router-practice3': '/demos/text.html#/practice3',
   }
 }
 
@@ -89,8 +93,28 @@ class SideMenu extends React.Component {
             itemid="text"
             className="left-nav-item"
             icon="history"
-            text="练习"
-            link={links.text} />
+            text="练习">
+            <Navigation >
+              <Item
+                itemid="router-practice1"
+                className="left-nav-item"
+                text="practice1"
+                icon="service"
+                link={links['router-practice1']} />
+              <Item
+                itemid="router-practice2"
+                className="left-nav-item"
+                text="practice2"
+                icon="training"
+                link={links['router-practice2']} />
+              <Item
+                itemid="router-practice3"
+                className="left-nav-item"
+                text="practice3"
+                icon="electronics"
+                link={links['router-practice3']} />
+            </Navigation>
+        </Item>
         </Navigation>
       </div>
     );
