@@ -1,0 +1,67 @@
+@import '../../styles/common';
+
+.next-dialog{
+	width:600px;
+}
+.next-dialog-body{
+	padding-top:0 !important;
+}
+.send-message{
+	border-top: 1px solid #bbb;
+	padding-top:20px;
+	.line{
+		margin-bottom: 15px;
+		label{
+			display: inline-block;
+			width:70px;
+			height: 20px;
+			text-align: right;
+		}
+		#logistics-company{
+			width:150px;
+		}
+		.next-input{
+			width:150px;
+		}
+	}
+
+}
+.goods{
+	width:550px;
+	border:1px solid #bbb;
+	.goods-info{
+		padding:10px;
+		border-bottom:1px solid #bbb;
+		.goods-describe{
+			display: inline-block;
+			.goods-name{
+				float: right;
+				display: inline-block;
+			}
+
+		}
+		.goods-price{
+			display: inline-block;
+		}
+	}
+	.receive-address{
+		padding:10px;
+	}
+}
+.address{
+	.line{
+		margin-top: 15px;
+		label{
+			display: inline-block;
+			width:70px;
+			height: 20px;
+			text-align: right;
+		}
+	}
+	#send-way{
+		width:480px;
+	}
+	#return-way{
+		width:480px;
+	}
+}

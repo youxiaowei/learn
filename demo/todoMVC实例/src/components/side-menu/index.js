@@ -19,6 +19,7 @@ const linkConfig = {
     'router-practice1': '/demos/text.html#/practice1',
     'router-practice2': '/demos/text.html#/practice2',
     'router-practice3': '/demos/text.html#/practice3',
+    'component':'/demos/component.html',
   },
   onLine: {//自行根据服务端路径定义
     'index': '/demos/index.html',
@@ -29,6 +30,7 @@ const linkConfig = {
     'router-practice1': '/demos/text.html#/practice1',
     'router-practice2': '/demos/text.html#/practice2',
     'router-practice3': '/demos/text.html#/practice3',
+    'component':'/demos/component.html',
   }
 }
 
@@ -115,6 +117,12 @@ class SideMenu extends React.Component {
                 link={links['router-practice3']} />
             </Navigation>
         </Item>
+        <Item
+          itemid="component"
+          className="left-nav-item"
+          icon="history"
+          text="组件练习"
+          link={links.component} />
         </Navigation>
       </div>
     );
