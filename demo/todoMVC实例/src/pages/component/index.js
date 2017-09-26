@@ -4,32 +4,34 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Layout from 'components/layout/index';
 import './index.scss';
-import Overlay from 'qnui/lib/overlay';
-import 'qnui/lib/overlay/index.scss';
+import {Button,Icon,Dialog,Select,Combobox,Input,Field} from 'qnui';
 
-import Badge from 'qnui/lib/badge';
-import 'qnui/lib/badge/index.scss';
+//  自定义按钮
+const footer=(
+            <div>
+                <Button type="primary" onClick={this.onClose}>确定</Button>
+                <Button type="normal" onClick={this.onClose}>关闭</Button>
+            </div>
+            );
+//发货方式
+const sendWay=[
+    {label:'自己联系',value:'自己联系'},
+    {label:'上门取货',value:'上门取货'}];
+// 物流公司
+const company=[
+    {label:'EMS',value:'EMS'},
+    {label:'圆通',value:'圆通'},
+    {label:'中通',value:'中通'},
+    {label:'韵达',value:'韵达'}];
+// 发货地址
+const address=[
+    {label:'顾超1，18621729133，上海，上海市，宝山区，高境镇新二路55号11楼爱用宝，201900',
+    value:'顾超1，18621729133，上海，上海市，宝山区，高境镇新二路55号11楼爱用宝，201900'},
+    {label:'顾超，18621729133，上海，上海市，宝山区，高境镇新二路55号11楼爱用宝，201900',value:'顾超，18621729133，上海，上海市，宝山区，高境镇新二路55号11楼爱用宝，201900'}
+];
 
-import 'qnui/lib/icon/index.scss';
-import Icon from 'qnui/lib/icon';
-
-
-import 'qnui/lib/button/index.scss';
-import Button from 'qnui/lib/button';
-
-import 'qnui/lib/breadcrumb/index.scss';
-import Breadcrumb from 'qnui/lib/breadcrumb';
-
-import Dialog from 'qnui/lib/dialog';
-import 'qnui/lib/dialog/index.scss';
-
-import Select, {Combobox} from 'qnui/lib/select';
-import 'qnui/lib/select/index.scss';
-
-import Input from 'qnui/lib/input';
-import 'qnui/lib/input/index.scss';
 class App extends React.Component {
-
+field = new Field(this);
     constructor(props) {
         super(props);
         this.state = {
@@ -43,12 +45,11 @@ class App extends React.Component {
     }
     onClose(){
         this.setState({visible: false});
+        console.log(this.field.getValues());
     }
     render() {
-        const footer=<div>
-                    <Button type="primary" onClick={this.onClose}>确定</Button>
-                    <Button type="normal" onClick={this.onClose}>关闭</Button>
-                </div>;
+         const init = this.field.init;
+
         return (
             <div className="component-page">
                 <Button type="primary" onClick={this.onOpen}>发货</Button>
@@ -62,24 +63,33 @@ class App extends React.Component {
                     <div className="send-message">
                         <div className="line">
                             <label htmlFor="send-way">发货方式：</label>
-                            <Select placeholder="请选择" id="send-way" size="small">
-                                <Option value="0">自己联系</Option>
-                                <Option value="1">上门取货</Option>
-                            </Select>
+                            <Select
+                                {...init('sendWay')}
+                                placeholder="请选择"
+                                id="send-way"
+                                size="small"
+                                dataSource={sendWay}
+                            />
                         </div>
                         <div className="line">
                             <label htmlFor="logistics-company">物流公司：</label>
-                            <Select placeholder="请选择" id="logistics-company" size="small">
-                                <Option value="0">EMS</Option>
-                                <Option value="1">圆通</Option>
-                                <Option value="2">中通</Option>
-                                <Option value="3">韵达</Option>
-                            </Select>
+                            <Select
+                                {...init('company')}
+                                placeholder="请选择"
+                                id="logistics-company"
+                                size="small"
+                                dataSource={company}
+                            />
 
                         </div>
                         <div className="line">
                             <label htmlFor="tracking-number">运单号：</label>
-                            <Input placeholder="请输入运单号" size="small" id="tracking-number"/>
+                            <Input
+                                placeholder="请输入运单号"
+                                size="small"
+                                id="tracking-number"
+                                {...init('number')}
+                            />
                         </div>
 
                     </div>
@@ -92,14 +102,31 @@ class App extends React.Component {
                                 </div>
                             </div>
                             <div className="goods-price">
-                                <p>￥111.00</p>
-                                <p>￥0.01X1</p>
-                                <p><Icon type="smile" size="small"></Icon>￥-110.99</p>
+                                <div className="price original-price">
+                                    <span>￥111.00</span>
+                                </div>
+                                <div className="price current-price">
+                                    <span>
+                                        ￥0.01
+                                    </span>
+                                    <div className="number">X
+                                        <span>1</span>
+                                    </div>
+
+                                </div>
+                                <div className="price privilege-price">
+                                    <span>
+                                        <Icon
+                                            type="smile"
+                                            size="small"
+                                            style={{color:'#3089dc'}}></Icon>￥-110.99
+                                    </span>
+                                </div>
                             </div>
                         </div>
                         <div className="receive-address">
                             <span>收货地址：
-                                <span><Icon type="atm"></Icon></span>
+                                <span><Icon type="atm" style={{color:'#3089dc'}}></Icon></span>
                                 顾超，18621729133，上海，上海市，宝山区，高境镇新二路55号11楼爱用宝，201900
                         </span>
                         </div>
@@ -107,17 +134,23 @@ class App extends React.Component {
                     <div className="address">
                         <p className="line send-address">
                         <label htmlFor="send-way">发货地址：</label>
-                        <Select placeholder="请选择" id="send-way" size="small">
-                                <Option value="0">顾超，18621729133，上海，上海市，宝山区，高境镇新二路55号11楼爱用宝，201900</Option>
-                                <Option value="1">顾超，18621729133，上海，上海市，宝山区，高境镇新二路55号11楼爱用宝，201900</Option>
-                            </Select>
+                        <Select
+                            placeholder="请选择"
+                            id="send-way"
+                            size="small"
+                            {...init('address')}
+                            dataSource={address}
+                        />
                         </p>
                         <p className="line return-address">
                         <label htmlFor="return-way">退货地址：</label>
-                        <Select placeholder="请选择" id="return-way" size="small">
-                                <Option value="0">顾超，18621729133，上海，上海市，宝山区，高境镇新二路55号11楼爱用宝，201900</Option>
-                                <Option value="1">顾超，18621729133，上海，上海市，宝山区，高境镇新二路55号11楼爱用宝，201900</Option>
-                            </Select>
+                        <Select
+                            placeholder="请选择"
+                            id="return-way"
+                            size="small"
+                            {...init('address')}
+                            dataSource={address}
+                        />
                         </p>
                     </div>
                 </Dialog>

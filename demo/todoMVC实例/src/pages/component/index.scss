@@ -12,6 +12,7 @@
 	.line{
 		margin-bottom: 15px;
 		label{
+			float: left;
 			display: inline-block;
 			width:70px;
 			height: 20px;
@@ -33,15 +34,49 @@
 		padding:10px;
 		border-bottom:1px solid #bbb;
 		.goods-describe{
+			float: left;
+			height: 80px;
+			width:60%;
 			display: inline-block;
+			img{
+				float: left;
+			}
 			.goods-name{
-				float: right;
 				display: inline-block;
 			}
 
 		}
 		.goods-price{
+			height: 80px;
+			width:40%;
 			display: inline-block;
+			.price>span{
+				display: inline-block;
+				width:70px;
+				text-align: right;
+			}
+			.original-price{
+				font-size: 16px;
+				color:#bbb;
+				span{
+					text-decoration: line-through;
+				}
+			}
+			.current-price{
+				position: relative;
+				font-size:16px;
+				.number{
+					position: absolute;
+					top:-2px;
+					left:85px;
+					display: inline-block;
+					color:red;
+					font-size: 14px;
+				}
+			}
+			.privilege-price{
+				font-size:12px;
+			}
 		}
 	}
 	.receive-address{
@@ -52,10 +87,14 @@
 	.line{
 		margin-top: 15px;
 		label{
+			float: left;
 			display: inline-block;
 			width:70px;
 			height: 20px;
 			text-align: right;
+		}
+		#address{
+			width:480px;
 		}
 	}
 	#send-way{
